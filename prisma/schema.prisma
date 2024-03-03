@@ -12,7 +12,7 @@ datasource db {
 
 
 model Personaje{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   nombre String 
   rol String @unique
   descripcion String?
@@ -21,10 +21,11 @@ model Personaje{
 }
 
 model Capitulo{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   nombre String
   sipnosis String
   pago String
+  numCap Int 
   webhook String
   personajes Personaje[]
 }

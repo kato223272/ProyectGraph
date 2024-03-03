@@ -1,6 +1,8 @@
 import {Capitulo} from "./Capitulo";
 
 export interface CapituloRepositorio{
-    addCapituloCaseUse(id:string, nombre:string, rol:string, pago:number, description?:string): Promise<Capitulo>
-    getCapituloCaseUse(Id:string): Promise<Capitulo[]>
+    addCapitulo(id:string, nombre:string, pago:String, numCap:string, sipnosis:string, webhook:string): Promise<Capitulo | null>
+    getCapitulo(id:string): Promise<Capitulo[]>
+    deleteCapitulo(id:string): Promise<Capitulo | null>
+    authetication(numCap:string): Promise<Capitulo>
 }
