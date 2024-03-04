@@ -25,7 +25,7 @@ model Capitulo{
   nombre String
   sipnosis String
   pago String
-  numCap Int 
+  numCap String 
   webhook String
   personajes Personaje[]
 }

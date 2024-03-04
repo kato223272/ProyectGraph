@@ -1,23 +1,9 @@
-import { PrismaClient } from "@prisma/client";
-import { CapituloRepositorio } from "../dominio/CapituloRepositorio";
-import { Capitulo } from "../dominio/Capitulo";
+import { AddCapituloCaseUse } from "../aplicacion/addCapituloCaseUse";
+import { AddCapituloController } from "./Controller/addCapituloController";
 
-export class PrismaCapituloRepositorio implements CapituloRepositorio{
-   private db:  PrismaClient;
-   constructor(){
-    this.db = new PrismaClient()
-   }
-   async addCapitulo(id: string, nombre: string, pago: string, numCap: string, sipnosis: string, webhook: string): Promise<Capitulo> {
-    const existCapitulo = await this.db.capitulo.findUnique({
-        where: {
-          id:id,
-          nombre:nombre,
-          pago:pago,
-          numCap:numCap,
-          sipnosis:sipnosis,
-          webhook:webhook
-        }
-      })
-   }
-}
+import { GetCapituloCaseUse } from "../aplicacion/getCapituloCaseUse";
+import { GetCapituloController } from "./Controller/getCapituloController";
+
+import { EncriptPago } from "./Helper/EncriptPago";
+
 
